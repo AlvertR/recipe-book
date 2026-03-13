@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx openspec:*)",
+      "Bash(cd \"C:/devel/apsys-mx/recipe-book\" && npx tsc -b --noEmit 2>&1)"
+    ]
+  }
+}
