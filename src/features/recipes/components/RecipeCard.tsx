@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import type { Recipe } from "../types/recipe";
 
 const difficultyColor: Record<string, string> = {
@@ -11,7 +12,10 @@ export function RecipeCard({ recipe }: { recipe: Recipe }) {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+    <Link
+      to={`/recipes/${recipe.id}`}
+      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow block"
+    >
       {imgError ? (
         <div className="w-full h-48 bg-gray-200 flex items-center justify-center text-gray-400">
           <svg
@@ -56,6 +60,6 @@ export function RecipeCard({ recipe }: { recipe: Recipe }) {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

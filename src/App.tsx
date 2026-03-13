@@ -1,4 +1,6 @@
+import { Routes, Route } from "react-router-dom";
 import { RecipeListPage } from "./features/recipes/RecipeListPage";
+import { RecipeDetailPage } from "./features/recipes/RecipeDetailPage";
 
 function App() {
   return (
@@ -9,7 +11,10 @@ function App() {
         </div>
       </header>
       <main className="max-w-7xl mx-auto px-4 py-8">
-        <RecipeListPage />
+        <Routes>
+          <Route path="/" element={<RecipeListPage />} />
+          <Route path="/recipes/:id" element={<RecipeDetailPage />} />
+        </Routes>
       </main>
     </div>
   );

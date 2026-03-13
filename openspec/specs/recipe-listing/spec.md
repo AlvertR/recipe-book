@@ -12,7 +12,7 @@ The system SHALL render a `RecipeListPage` component that fetches all recipes us
 - **THEN** the page SHALL display a message indicating no recipes are available
 
 ### Requirement: Recipe card displays key information
-Each recipe card SHALL display the recipe's image, name, category, difficulty, and preparation time.
+Each recipe card SHALL display the recipe's image, name, category, difficulty, and preparation time. The entire card SHALL be wrapped in a `<Link>` to `/recipes/:id`, making it fully clickable to navigate to the recipe detail page.
 
 #### Scenario: Card content rendering
 - **WHEN** a recipe card is rendered
@@ -21,6 +21,10 @@ Each recipe card SHALL display the recipe's image, name, category, difficulty, a
 #### Scenario: Card image fallback
 - **WHEN** the recipe image fails to load
 - **THEN** the card SHALL display a placeholder or fallback visual instead of a broken image
+
+#### Scenario: Card navigates to detail
+- **WHEN** the user clicks anywhere on a recipe card
+- **THEN** the system SHALL navigate to `/recipes/:id` where `:id` is the recipe's ID
 
 ### Requirement: Loading state feedback
 The system SHALL display a visual loading indicator while recipes are being fetched.
@@ -37,8 +41,8 @@ The system SHALL display an error message when the recipe fetch fails.
 - **THEN** the page SHALL display an error message with a retry option
 
 ### Requirement: Page is rendered in App.tsx
-The `App.tsx` component SHALL render `RecipeListPage` as the main content of the application.
+The `App.tsx` component SHALL render `RecipeListPage` at the `/` route using React Router instead of rendering it directly.
 
-#### Scenario: App renders listing
-- **WHEN** the application loads
-- **THEN** `App.tsx` SHALL render the `RecipeListPage` component
+#### Scenario: App renders listing at root route
+- **WHEN** the user navigates to `/`
+- **THEN** `App.tsx` SHALL render the `RecipeListPage` component via React Router
