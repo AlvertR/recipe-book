@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { Recipe } from "../types/recipe";
+import type { Category } from "../types/category";
 
 export const recipesApi = createApi({
   reducerPath: "recipesApi",
@@ -8,7 +9,10 @@ export const recipesApi = createApi({
     getRecipes: builder.query<Recipe[], void>({
       query: () => "/recipes",
     }),
+    getCategories: builder.query<Category[], void>({
+      query: () => "/categories",
+    }),
   }),
 });
 
-export const { useGetRecipesQuery } = recipesApi;
+export const { useGetRecipesQuery, useGetCategoriesQuery } = recipesApi;
